@@ -102,9 +102,9 @@
 			children = (
 				6B46445122C63126007A46DE /* EndZone */,
 				6B46446822C63127007A46DE /* EndZoneTests */,
-				6B46445022C63126007A46DE /* Products */,
-				0463F5F9D0E23F161BDBED52 /* Pods */,
 				A0808555CCF295978BF5984F /* Frameworks */,
+				0463F5F9D0E23F161BDBED52 /* Pods */,
+				6B46445022C63126007A46DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,14 +122,14 @@
 			children = (
 				6BC5ADDB22CF878A00D36909 /* API */,
 				6BC8134522CD0F34004EC37B /* DI */,
+				6B46445A22C63127007A46DE /* Preview Content */,
 				6BC8133C22CCF4A0004EC37B /* UI */,
 				6BC8133D22CCF4CE004EC37B /* UseCase */,
-				6B46446022C63127007A46DE /* Info.plist */,
 				6B46445222C63126007A46DE /* AppDelegate.swift */,
-				6B46445422C63126007A46DE /* SceneDelegate.swift */,
 				6B46445822C63127007A46DE /* Assets.xcassets */,
+				6B46446022C63127007A46DE /* Info.plist */,
 				6B46445D22C63127007A46DE /* LaunchScreen.storyboard */,
-				6B46445A22C63127007A46DE /* Preview Content */,
+				6B46445422C63126007A46DE /* SceneDelegate.swift */,
 			);
 			path = EndZone;
 			sourceTree = "<group>";
@@ -180,8 +180,8 @@
 		6BC8133C22CCF4A0004EC37B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6BC8134022CCF5F6004EC37B /* Utils */,
 				6BC8133722CCF251004EC37B /* SearchPlace */,
+				6BC8134022CCF5F6004EC37B /* Utils */,
 				6BC8133622CCF223004EC37B /* ZoneList */,
 			);
 			path = UI;
@@ -431,6 +431,7 @@
 				6B46445E22C63127007A46DE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
