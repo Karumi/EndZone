@@ -5,7 +5,7 @@ struct ImageApi {
     func searchImages(query: String) -> AnyPublisher<URL, Error> {
         return pixabaySearchImages(query: query)
             .compactMap { $0.hits.first?.largeImageURL }
-            .compactMap { URL(string:$0) }
+            .compactMap { URL(string: $0) }
             .eraseToAnyPublisher()
     }
 
@@ -19,8 +19,7 @@ struct ImageApi {
             .eraseToAnyPublisher()
     }
 
-
-    private func request(url:URL) -> AnyPublisher<Data, Error> {
+    private func request(url: URL) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { data, _ in data }
             .mapError { $0 }
@@ -33,12 +32,6 @@ struct Response: Codable {
     let totalHits: Int
     let hits: [Hit]
     let total: Int
-
-    enum CodingKeys: String, CodingKey {
-        case totalHits = "totalHits"
-        case hits = "hits"
-        case total = "total"
-    }
 }
 
 // MARK: - Hit

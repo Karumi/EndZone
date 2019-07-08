@@ -15,7 +15,7 @@ extension Place {
     var color: (text: Color, background: Color) {
         let currentDate = Date()
         if let solar = Solar(coordinate: coordinate) {
-            if solar.isDaytime, let sunrise = solar.sunrise , let sunset = solar.sunset  {
+            if solar.isDaytime, let sunrise = solar.sunrise, let sunset = solar.sunset {
                 let interval = sunrise.distance(to: sunset)
                 let slice = interval / 3
                 let morning = sunrise + slice
@@ -35,7 +35,7 @@ extension Place {
     }
 }
 
-struct ZoneListView : View {
+struct ZoneListView: View {
     @ObjectBinding
     var viewModel: ZoneListViewModel
 
@@ -62,7 +62,7 @@ struct PlaceView: View {
     let place: Place
 
     @State
-    var background: Image? = nil
+    var background: Image?
 
     var body: some View {
         ZStack {
@@ -88,10 +88,9 @@ struct PlaceView: View {
 }
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ZoneListView(viewModel: CompositionRoot.shared.zoneListViewModel)
     }
 }
 #endif
-

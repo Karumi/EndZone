@@ -1,4 +1,3 @@
-
 class CompositionRoot {
     static var shared: CompositionRoot = CompositionRoot()
 

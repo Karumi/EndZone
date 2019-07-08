@@ -2,7 +2,7 @@ import MapKit
 import Combine
 
 class SearchPlaces {
-    private var search: MKLocalSearch? = nil
+    private var search: MKLocalSearch?
 
     func invoke(placeName: String) -> AnyPublisher<[Place], Error> {
         Future { promise in

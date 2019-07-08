@@ -33,7 +33,7 @@ struct SearchView: View {
 }
 
 #if DEBUG
-struct SearchView_Previews : PreviewProvider {
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(searchViewModel: CompositionRoot.shared.searchViewModel)
     }

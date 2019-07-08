@@ -18,10 +18,9 @@ class ZoneListViewModel: BindableObject {
             timeZone: TimeZone(identifier: "Europe/Paris")!,
             coordinate: CLLocationCoordinate2D(latitude: 40.4378698, longitude: -3.8196207)
         )
-    ]
-        {
+    ] {
         willSet {
-            newValue.filter{ $0.imageUrl == nil && cancellables[$0.name] == nil }.forEach { place in
+            newValue.filter { $0.imageUrl == nil && cancellables[$0.name] == nil }.forEach { place in
                 let sink = ImageApi().searchImages(query: place.name).receive(on: RunLoop.main).sink { url in
                     self.places.removeAll { $0 == place }
                     self.places.append(place.withImageUrl(url))
