@@ -1,12 +1,16 @@
 class CompositionRoot {
     static var shared: CompositionRoot = CompositionRoot()
 
-    lazy var searchPlacesService = {
+    lazy var searchPlacesService: SearchPlacesService = {
         MapKitSearchPlaces()
     }()
 
+    lazy var imageApi: ImageApi = {
+        PixabayImageApi()
+    }()
+
     lazy var zoneListViewModel = {
-        ZoneListViewModel()
+        ZoneListViewModel(searchImageByPlace: SearchImageByPlace(imageApi: imageApi))
     }()
 
     lazy var searchViewModel = {

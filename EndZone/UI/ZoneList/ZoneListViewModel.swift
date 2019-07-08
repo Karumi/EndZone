@@ -7,6 +7,8 @@ class ZoneListViewModel: BindableObject {
 
     var cancellables: [String: AnyCancellable] = [:]
 
+    let searchImageByPlace: SearchImageByPlace
+
     var places: [Place] = [
         Place(
             name: "Cupertino",
@@ -21,7 +23,7 @@ class ZoneListViewModel: BindableObject {
     ] {
         willSet {
             newValue.filter { $0.imageUrl == nil && cancellables[$0.name] == nil }.forEach { place in
-                let sink = ImageApi().searchImages(query: place.name).receive(on: RunLoop.main).sink { url in
+                let sink = searchImageByPlace.invoke(query: place.name).receive(on: RunLoop.main).sink { url in
                     self.places.removeAll { $0 == place }
                     self.places.append(place.withImageUrl(url))
                     self.didChange.send()
@@ -35,5 +37,9 @@ class ZoneListViewModel: BindableObject {
             }
             didChange.send()
         }
+    }
+
+    init(searchImageByPlace: SearchImageByPlace) {
+        self.searchImageByPlace = searchImageByPlace
     }
 }

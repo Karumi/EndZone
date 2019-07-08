@@ -1,7 +1,11 @@
 import Foundation
 import Combine
 
-struct ImageApi {
+protocol ImageApi {
+    func searchImages(query: String) -> AnyPublisher<URL, Error>
+}
+
+struct PixabayImageApi: ImageApi {
     func searchImages(query: String) -> AnyPublisher<URL, Error> {
         return pixabaySearchImages(query: query)
             .compactMap { $0.hits.first?.largeImageURL }
