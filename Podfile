@@ -1,4 +1,5 @@
 platform :ios, '13.0'
+use_frameworks!
 
 def app_development_pods
 	pod 'SwiftLint', :configurations => ['Debug']
